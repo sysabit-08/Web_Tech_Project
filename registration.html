@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AutoCare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="stickyDemo">
+        <h2>AutoCare Vehicle Service Management</h2>
+  </div>
+  
+<h3><i>Create your account</i></h3>
+
+    <div class="staticDemo">
+        <p>Register today to easily manage, schedule, and track your vehicle service appointments. 
+          Please fill out the form below with your accurate personal and vehicle details to get started.
+        </p>
+    </div>
+
+<h2>User Registration Form</h2>
+
+<form action="" method="post">
+  <table>
+    <tr>
+      <td><label for="name">Full Name</label></td>
+      <td>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="email">Email</label></td>
+      <td>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+      </td>
+    </tr>
+
+    <tr>
+          <td><label for="dob">Date of Birth</label></td>
+          <td>
+            <input type="date" id="dob" name="dob" />
+          </td>
+    </tr>
+
+    <tr>
+      <td><label for="phone">Phone Number</label></td>
+      <td>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="password">Password</label></td>
+      <td>
+        <input type="password" id="password" name="password" placeholder="Create a strong password" required />
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="vehicleModel">Vehicle Model</label></td>
+      <td>
+        <input type="text" id="vehicleModel" name="vehicleModel" placeholder="e.g. Toyota Corolla" required />
+      </td>
+    </tr>
+
+    <tr>
+          <td><label for="vehicleType">Vehicle Category</label></td>
+          <td>
+            <select id="vehicleType" name="vehicleType" required>
+              <option value="" disabled selected>Select vehicle type</option>
+              <option value="sedan">Sedan / Hatchback</option>
+              <option value="suv">SUV / Cross-over</option>
+              <option value="crossover">Crossover</option>
+              <option value="coupe">Coupe</option>
+              <option value="convertible">Convertible</option>
+              <option value="bike">Motorcycle / Bike</option>
+              <option value="scooter">Scooter</option>
+              <option value="microbus">Microbus / Van</option>
+              <option value="pickup">Pickup Truck</option>
+              <option value="truck">Commercial Truck</option>
+              <option value="bus">Heavy Bus</option>
+              <option value="electric">Electric Vehicle (EV)</option>
+            </select>
+          </td>
+        </tr>
+
+
+    <tr>
+      <td>Terms</td>
+      <td>
+        <input type="checkbox" id="terms" name="terms" required />
+        <label for="terms">I agree to the terms & conditions</label>
+      </td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit">Create Account</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<p>
+  Already have an account? go to
+  <a href="#">Log In</a>
+</p>
+
+<p>
+    <a href="users.html">View Registered Users List</a>
+</p>
+
+ <div class="fixedDemo">
+        <a href="#">Need Help?</a>
+    </div>
+
+</body>
