@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AutoCare - Module 2</title>
+    <link rel="stylesheet" href="loginstyle.css">
+  </head>
+
+  <body>
+    <div class="stickyDemo">
+      <h2>AutoCare: Vehicle Service & Maintenance</h2>
+    </div>
+
+    <h3>Customer Authentication & Support Module</h3>
+
+    <div class="staticDemo">
+      <p><b><i>System Message: Form submitted successfully!</i></b></p>
+    </div>
+
+    <h3>Secure Customer Login</h3>
+    <form action="" method="get">
+      <table>
+        <tr>
+          <td><label for="loginEmail">Email</label></td>
+          <td>
+            <input type="email" id="loginEmail" name="loginEmail" placeholder="Enter your email" required />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="loginPassword">Password</label></td>
+          <td>
+            <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your password" required />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button type="submit">Login</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <h3>Forgot Password Workflow</h3>
+    <form action="" method="get">
+      <table>
+        <tr>
+          <td><label for="resetEmail">Email</label></td>
+          <td>
+            <input type="email" id="resetEmail" name="resetEmail" placeholder="Enter email for OTP" required />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button type="submit">Send OTP</button>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="otp">Enter OTP</label></td>
+          <td>
+            <input type="number" id="otp" name="otp" placeholder="Enter OTP code" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="newPassword">New Password</label></td>
+          <td>
+            <input type="password" id="newPassword" name="newPassword" placeholder="Enter new password" />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button type="submit">Reset Password</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <h3>Emergency Roadside Support</h3>
+    <form action="" method="get">
+      <table>
+        <tr>
+          <td><label for="supportName">Full Name</label></td>
+          <td>
+            <input type="text" id="supportName" name="supportName" placeholder="Enter your name" required />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="supportPhone">Phone Number</label></td>
+          <td>
+            <input type="number" id="supportPhone" name="supportPhone" placeholder="Enter phone number" required />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="issue">Describe Issue</label></td>
+          <td>
+            <textarea id="issue" name="issue" rows="4" cols="30" placeholder="Describe emergency or query"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button type="submit">Request Support</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <p>
+      Back to <a href="index.html">Home Page</a>
+    </p>
+
+    <div class="fixedDemo">
+      <a href="#">Need Help?</a>
+    </div>
+  </body>
+</html>
