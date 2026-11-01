@@ -75,7 +75,6 @@ p {
     text-decoration: underline;
 }
 
-/* Forms and tables */
 form {
     margin-bottom: 25px;
 }
@@ -84,7 +83,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     background-color: white;
-    padding: 10px;
+    padding: 0px;
 }
 
 td {
@@ -96,7 +95,7 @@ label {
     color: brown;
 }
 
-/* Inputs */
+/*Inputs*/
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -113,10 +112,9 @@ input[type="password"]:hover,
 input[type="number"]:hover,
 input[type="text"]:hover,
 textarea:hover {
-    background-color: #fdf3f3;
+    background-color: #faa6a6;
 }
 
-/* Buttons */
 button[type="submit"] {
     background-color: brown;
     color: white;
@@ -130,7 +128,6 @@ button[type="submit"]:hover {
     background-color: rgb(135, 39, 39);
 }
 
-/* Links */
 a {
     color: blue;
     font-weight: bold;
@@ -138,5 +135,5 @@ a {
 }
 
 a:hover {
-    color: aqua;
+    color: rgb(2, 27, 27);
 }
