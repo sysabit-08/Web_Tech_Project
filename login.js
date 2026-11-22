@@ -1,8 +1,3 @@
-// =====================================================
-// AutoCare - Module 2: Customer Authentication & Support
-// =====================================================
-
-// ---------- 1. Demo users (taken from users.html) ----------
 let user1Name = "Rahim Ahmed";
 let user1Email = "rahim@gmail.com";
 let user1Password = "Rahim@123";
@@ -19,25 +14,22 @@ let user4Name = "Nusrat Jahan";
 let user4Email = "nusrat@gmail.com";
 let user4Password = "Nusrat@123";
 
-// ---------- 2. Settings and state ----------
 const MAX_LOGIN_ATTEMPTS = 3;
 const MAX_OTP_ATTEMPTS = 3;
 const LETTERS = "abcdefghijklmnopqrstuvwxyz";
 const DIGITS = "0123456789";
 const NAME_CHARS = "abcdefghijklmnopqrstuvwxyz .'-";
 
-let failedAttempts = 0;   // wrong login tries
-let currentOtp = "";      // OTP that was generated
-let otpUser = 0;          // user number the OTP was sent to
+let failedAttempts = 0;
+let currentOtp = "";
+let otpUser = 0;
 let otpEmail = "";
-let otpAttempts = 0;      // wrong OTP tries
-let otpCounter = 0;       // used to make a different OTP each time
-let verifiedUser = 0;     // set only after the OTP is correct
-let ticketCounter = 0;    // used for support ticket numbers
+let otpAttempts = 0;
+let otpCounter = 0;
+let verifiedUser = 0;
+let ticketCounter = 0;
 
 
-// ---------- 3. User helper functions ----------
-// Returns 1-4 if the email belongs to a user, otherwise 0
 function findUser(email) {
     let e = email.toLowerCase();
     if (e === user1Email) {
@@ -108,8 +100,6 @@ function setPassword(n, newPassword) {
 }
 
 
-// ---------- 4. Validation helper functions ----------
-// true only if every character is 0-9
 function isDigits(text) {
     if (text.length === 0) {
         return false;
@@ -122,30 +112,28 @@ function isDigits(text) {
     return true;
 }
 
-// Simple email syntax check: something@something.something
 function isValidEmail(email) {
     let atPos = email.indexOf("@");
     if (atPos < 1) {
-        return false;                  // no @, or nothing before it
+        return false;
     }
     if (email.indexOf(" ") !== -1) {
-        return false;                  // spaces are not allowed
+        return false;
     }
     let domain = email.slice(atPos + 1, email.length);
     if (domain.indexOf("@") !== -1) {
-        return false;                  // only one @ allowed
+        return false;
     }
     let dotPos = domain.indexOf(".");
     if (dotPos < 1) {
-        return false;                  // no dot, or dot right after @
+        return false;
     }
     if (dotPos === domain.length - 1) {
-        return false;                  // nothing after the dot
+        return false;
     }
     return true;
 }
 
-// Password must contain at least one letter and one number
 function hasLetterAndNumber(text) {
     let hasLetter = false;
     let hasNumber = false;
@@ -161,7 +149,6 @@ function hasLetterAndNumber(text) {
     return hasLetter && hasNumber;
 }
 
-// Name may contain letters, spaces and . ' -
 function isValidName(name) {
     if (name.length < 3) {
         return false;
@@ -176,14 +163,11 @@ function isValidName(name) {
 }
 
 
-// ---------- 5. Messages and errors ----------
-// type = "success", "error" or "info" (shown in the sticky header)
 function showMessage(text, type) {
     document.getElementById("systemMessageText").innerHTML =
         "<span class='msg-" + type + "'>" + text + "</span>";
 }
 
-// Every error span has the id: inputId + "Error"
 function setError(inputId, text) {
     document.getElementById(inputId + "Error").innerHTML = text;
 }
@@ -193,9 +177,6 @@ function clearError(inputId) {
 }
 
 
-// =====================================================
-// A. SECURE CUSTOMER LOGIN
-// =====================================================
 function checkLoginEmail() {
     let email = document.getElementById("loginEmail").value.trim();
     clearError("loginEmail");
@@ -208,7 +189,6 @@ function loginUser() {
     clearError("loginEmail");
     clearError("loginPassword");
 
-    // Too many wrong attempts
     if (failedAttempts >= MAX_LOGIN_ATTEMPTS) {
         showMessage("Too many failed attempts. Please use Forgot Password below.", "error");
         return;
@@ -218,7 +198,6 @@ function loginUser() {
     let password = document.getElementById("loginPassword").value;
     let valid = true;
 
-    // Email: empty check, then syntax check
     if (email === "") {
         setError("loginEmail", "Email is required.");
         valid = false;
@@ -227,7 +206,6 @@ function loginUser() {
         valid = false;
     }
 
-    // Password: empty check, then length check
     if (password === "") {
         setError("loginPassword", "Password is required.");
         valid = false;
@@ -241,7 +219,6 @@ function loginUser() {
         return;
     }
 
-    // Check email and password against the demo users
     let userNumber = findUser(email);
 
     if (userNumber === 0 || getPassword(userNumber) !== password) {
@@ -255,21 +232,15 @@ function loginUser() {
         }
     } else {
         failedAttempts = 0;
-        showMessage("Login successful! Welcome, " + getName(userNumber) +
-            ". <a href='index.html'>Go to Service Booking</a>", "success");
+        //next page (service.html)
+        window.location.href = "service.html";
     }
 }
 
 
-// =====================================================
-// B. FORGOT PASSWORD (OTP + RESET)
-// =====================================================
-
-// ----- B1. Step 1: check the email and send the OTP -----
 function sendOtp() {
     clearError("resetEmail");
 
-    // Start fresh if the user asks for a new OTP
     verifiedUser = 0;
     document.getElementById("resetArea").innerHTML = "";
 
@@ -288,10 +259,7 @@ function sendOtp() {
     }
 }
 
-// ----- B2. OTP verification popup -----
-// Builds the popup HTML and puts it in the page. Also used for Resend OTP.
 function openOtpModal() {
-    // make a 6-digit OTP (different every time)
     otpCounter = otpCounter + 1;
     currentOtp = "" + (100000 + (otpCounter * 48271) % 900000);
     otpAttempts = 0;
@@ -345,7 +313,6 @@ function verifyOtp() {
             setError("otpInput", "Incorrect OTP. " + attemptsLeft + " attempt(s) left.");
         }
     } else {
-        // OTP is correct: open the reset interface
         verifiedUser = otpUser;
         closeOtpModal();
         openResetArea();
@@ -353,7 +320,7 @@ function verifyOtp() {
     }
 }
 
-// ----- B3. Step 2: reset password interface (only after OTP is verified) -----
+//The reset form is created only after the OTP is verified
 function openResetArea() {
     let html = "";
     html += "<h3>Reset Your Password</h3>";
@@ -392,7 +359,6 @@ function resetPassword() {
     let confirmPassword = document.getElementById("confirmPassword").value;
     let valid = true;
 
-    // New password checks
     if (newPassword === "") {
         setError("newPassword", "New password is required.");
         valid = false;
@@ -404,7 +370,6 @@ function resetPassword() {
         valid = false;
     }
 
-    // Confirm password checks
     if (confirmPassword === "") {
         setError("confirmPassword", "Please confirm your new password.");
         valid = false;
@@ -418,7 +383,6 @@ function resetPassword() {
         return;
     }
 
-    // Save the new password and go back to login
     setPassword(verifiedUser, newPassword);
     failedAttempts = 0;
     document.getElementById("loginEmail").value = getEmail(verifiedUser);
@@ -431,17 +395,11 @@ function resetPassword() {
 }
 
 
-// =====================================================
-// C. EMERGENCY ROADSIDE SUPPORT
-// =====================================================
-
-// Live character counter (input event)
 function updateCount() {
     let text = document.getElementById("issue").value;
     document.getElementById("issueCount").innerHTML = text.length + "/200";
 }
 
-// Hint that changes with the selected request type (change event)
 function showRequestHint() {
     let type = document.getElementById("requestType").value;
 
@@ -468,7 +426,6 @@ function submitSupport() {
     let issue = document.getElementById("issue").value.trim();
     let valid = true;
 
-    // Name
     if (name === "") {
         setError("supportName", "Full name is required.");
         valid = false;
@@ -477,7 +434,7 @@ function submitSupport() {
         valid = false;
     }
 
-    // Phone: 11 digits, starts with 01, third digit is 3-9
+    // Bangladeshi mobile number: 11 digits, starts with 01, third digit is 3-9
     if (phone === "") {
         setError("supportPhone", "Phone number is required.");
         valid = false;
@@ -488,13 +445,11 @@ function submitSupport() {
         valid = false;
     }
 
-    // Request type
     if (type === "") {
         setError("requestType", "Please select a request type.");
         valid = false;
     }
 
-    // Issue
     if (issue === "") {
         setError("issue", "Please describe your issue.");
         valid = false;
@@ -508,7 +463,6 @@ function submitSupport() {
         return;
     }
 
-    // Create a ticket number and confirm
     ticketCounter = ticketCounter + 1;
     let ticketId = "SUP-" + (1000 + ticketCounter);
 
@@ -520,7 +474,6 @@ function submitSupport() {
             ". We will get back to you soon.", "success");
     }
 
-    // Clear the form
     document.getElementById("supportName").value = "";
     document.getElementById("supportPhone").value = "";
     document.getElementById("requestType").value = "";
@@ -530,9 +483,6 @@ function submitSupport() {
 }
 
 
-// =====================================================
-// D. EVENTS
-// =====================================================
 function pageLoaded() {
     showMessage("Welcome! Please log in to continue.", "info");
     console.log("Login page loaded");

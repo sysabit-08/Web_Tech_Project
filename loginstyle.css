@@ -107,12 +107,11 @@ p {
     text-decoration: underline;
 }
 
-/* Keeps the heading below the sticky header after clicking Need Help? */
 #supportSection {
     scroll-margin-top: 110px;
 }
 
-/* Form boxes */
+/*Form boxes */
 .formBox {
     margin-bottom: 25px;
 }
@@ -133,7 +132,7 @@ label {
     color: brown;
 }
 
-/* Inputs */
+/*Inputs */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -153,7 +152,6 @@ textarea:hover {
     background-color: #faa6a6;
 }
 
-/* Error text, hint text and character counter */
 .error {
     display: block;
     color: red;
@@ -176,7 +174,6 @@ textarea:hover {
     color: rgb(135, 39, 39);
 }
 
-/* Buttons */
 button[type="button"] {
     background-color: brown;
     color: white;
@@ -200,7 +197,6 @@ a:hover {
     color: rgb(2, 27, 27);
 }
 
-/* OTP popup: it only exists in the page while JavaScript has placed it there */
 .popup {
     position: fixed;
     top: 0;
