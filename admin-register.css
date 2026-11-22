@@ -1,14 +1,31 @@
+
+
 body {
     background-color: rgb(233, 205, 243);
     font-family: Arial, sans-serif;
     padding: 20px;
+    padding-top: 60px;
+}
+
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: brown;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+    z-index: 1000;
 }
 
 h2, h3 {
     color: brown;
 }
 
-h3{
+h3 {
     text-align: center;
 }
 
@@ -16,6 +33,7 @@ p {
     color: rgb(135, 39, 39);
     font-size: 16px;
 }
+
 
 .stickyDemo {
     position: sticky;
@@ -51,13 +69,11 @@ p {
     border-radius: 5px;
 }
 
-
 .fixedDemo a {
     color: red;
     font-weight: bold;
     text-decoration: none;
 }
-
 
 .fixedDemo a:hover {
     color: yellow;
@@ -81,6 +97,7 @@ td {
     padding: 8px;
 }
 
+
 input[type="text"],
 input[type="email"],
 input[type="date"],
@@ -92,6 +109,43 @@ select {
     box-sizing: border-box;
 }
 
+form {
+    width: 380px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    margin: 20px auto;
+    border-radius: 4px;
+}
+
+fieldset {
+    border: 1px solid #999;
+    padding: 15px;
+}
+
+legend {
+    font-weight: bold;
+    color: brown;
+    padding: 0 5px;
+}
+
+div {
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+span {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 2px;
+}
+
+
 button[type="submit"] {
     background-color: brown;
     color: white;
@@ -99,11 +153,13 @@ button[type="submit"] {
     border: none;
     cursor: pointer;
     font-weight: bold;
+    width: 100%;
 }
 
 button[type="submit"]:hover {
     background-color: rgb(135, 39, 39);
 }
+
 
 a {
     color: blue;
