@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="adminstyle.css">
+</head>
+<body>
+
+
+<div class="header">
+<h1>AutoCare Admin</h1>
+</div>
+
+
+<div class="topnav">
+<a href="#" class="active">Dashboard</a>
+<a href="#">Bookings</a>
+<a href="#">Services</a>
+<a href="#">Customers</a>
+<a href="#">Logout</a>
+</div>
+
+<h2>Admin Panel</h2>
+
+
+<div class="row">
+<div class="box">
+<h3>Total Bookings</h3>
+<p>24</p>
+</div>
+<div class="box">
+<h3>Pending Requests</h3>
+<p>7</p>
+</div>
+<div class="box">
+<h3>Completed Services</h3>
+<p>15</p>
+</div>
+</div>
+
+<hr>
+
+
+<h3>Booking List</h3>
+
+<form class="search">
+<label for="name">Search:</label>
+<input type="text" id="name" name="name" placeholder="Customer name">
+
+<label for="status">Status:</label>
+<select id="status" name="status">
+<option value="all">All</option>
+<option value="pending">Pending</option>
+<option value="approved">Approved</option>
+<option value="completed">Completed</option>
+<option value="rejected">Rejected</option>
+</select>
+
+<button type="button" class="btn blue">Search</button>
+<button type="reset" class="btn grey">Reset</button>
+</form>
+
+
+<table border="1">
+<caption>All Service Requests</caption>
+<tr>
+<th>Booking ID</th>
+<th>Customer</th>
+<th>Vehicle</th>
+<th>Service</th>
+<th>Date</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+<tr>
+<td>B-101</td>
+<td>Rahim Uddin</td>
+<td>Toyota Axio</td>
+<td>Engine Tuning</td>
+<td>12-11-2026</td>
+<td><span class="pending">Pending</span></td>
+<td>
+<button type="button" class="btn blue">Approve</button>
+<button type="button" class="btn red">Reject</button>
+</td>
+</tr>
+<tr>
+<td>B-102</td>
+<td>Nadia Islam</td>
+<td>Honda Civic</td>
+<td>Oil Change</td>
+<td>13-11-2026</td>
+<td><span class="approved">Approved</span></td>
+<td>
+<button type="button" class="btn green">Complete</button>
+<button type="button" class="btn red">Reject</button>
+</td>
+</tr>
+<tr>
+<td>B-103</td>
+<td>Siam Hossain</td>
+<td>Suzuki Swift</td>
+<td>Wash &amp; Polish</td>
+<td>13-11-2026</td>
+<td><span class="completed">Completed</span></td>
+<td>
+<button type="button" class="btn grey">View</button>
+</td>
+</tr>
+<tr>
+<td>B-104</td>
+<td>Tanvir Ahmed</td>
+<td>Nissan X-Trail</td>
+<td>Brake Inspection</td>
+<td>14-11-2026</td>
+<td><span class="pending">Pending</span></td>
+<td>
+<button type="button" class="btn blue">Approve</button>
+<button type="button" class="btn red">Reject</button>
+</td>
+</tr>
+<tr>
+<td>B-105</td>
+<td>Mehedi Hasan</td>
+<td>Toyota Premio</td>
+<td>AC Servicing</td>
+<td>15-11-2026</td>
+<td><span class="rejected">Rejected</span></td>
+<td>
+<button type="button" class="btn grey">View</button>
+</td>
+</tr>
+</table>
+
+<div class="footer">
+<p>AutoCare 2026 | Section Y | Group 09</p>
+</div>
+
+</body>
+</html>
