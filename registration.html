@@ -20,7 +20,7 @@
 
 <h2>User Registration Form</h2>
 
-<form action="" method="post">
+<form id="regForm" action="" method="post" novalidate>
   <table>
     <tr>
       <td><label for="name">Full Name</label></td>
@@ -97,7 +97,8 @@
     <tr>
       <td></td>
       <td>
-        <button type="submit">Create Account</button>
+        <input type="submit" id="submitBtn" value="Create Account" disabled />
+        <!-- <button type="submit" id="submitBtn">Create Account</button> -->
       </td>
     </tr>
   </table>
@@ -114,6 +115,8 @@
 
  <div class="fixedDemo">
         <a href="#">Need Help?</a>
-    </div>
+  </div>
 
+  <script src="reg.js"></script>
 </body>
+</html>
