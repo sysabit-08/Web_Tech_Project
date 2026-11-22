@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+
+    <title>AutoCare Service Booking</title>
+
+    <link rel="stylesheet" href="style.css">
+    <a href="#chat" class="chat-icon">💬</a>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>AutoCare Services</h1>
+        <p>Professional Vehicle Maintenance and Repair</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Our Services</h2>
+            <p>Choose a service for your vehicle.</p>
+
+            <label for="search">Search Services:</label>
+            <input type="search" id="search"
+                   placeholder="Search by service name">
+
+            <label for="category">Filter by Category:</label>
+            <select id="category">
+                <option value="">All Categories</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Cleaning">Cleaning</option>
+                <option value="Inspection">Inspection</option>
+                <option value="Repair">Repair</option>
+            </select>
+
+            <div id="serviceCatalog">
+
+                <article>
+                    <h3>Engine Tuning</h3>
+                    <p>Category: Maintenance</p>
+                    <p>Improve engine performance and efficiency.</p>
+                    <p>Motorcycle: ৳800 | Sedan: ৳2,500 | SUV: ৳3,500 | Pickup: ৳5,000</p>
+                    <button type="button" class="book-service" data-service="Engine Tuning">Book Service</button>
+                </article>
+
+                <article>
+                    <h3>Oil Change</h3>
+                    <p>Category: Maintenance</p>
+                    <p>Replace old engine oil with fresh oil.</p>
+                    <p>Motorcycle: ৳400 | Sedan: ৳1,200 | SUV: ৳1,800 | Pickup: ৳3,000</p>
+                    <button type="button" class="book-service" data-service="Oil Change">Book Service</button>
+                </article>
+
+                <article>
+                    <h3>Wash &amp; Polish</h3>
+                    <p>Category: Cleaning</p>
+                    <p>Complete vehicle washing and polishing.</p>
+                    <p>Motorcycle: ৳200 | Sedan: ৳800 | SUV: ৳1,200 | Pickup: ৳2,000</p>
+                    <button type="button" class="book-service" data-service="Wash & Polish">Book Service</button>
+                </article>
+
+                <article>
+                    <h3>Brake Inspection</h3>
+                    <p>Category: Inspection</p>
+                    <p>Check brake pads and braking performance.</p>
+                    <p>Motorcycle: ৳300 | Sedan: ৳1,500 | SUV: ৳2,000 | Pickup: ৳2,800</p>
+                    <button type="button" class="book-service" data-service="Brake Inspection">Book Service</button>
+                </article>
+
+                <article>
+                    <h3>Battery Repair</h3>
+                    <p>Category: Repair</p>
+                    <p>Inspect battery condition and connections.</p>
+                    <p>Motorcycle: ৳350 | Sedan: ৳1,000 | SUV: ৳1,400 | Pickup: ৳2,000</p>
+                    <button type="button" class="book-service" data-service="Battery Repair">Book Service</button>
+                </article>
+
+                <article>
+                    <h3>Tyre Inspection</h3>
+                    <p>Category: Inspection</p>
+                    <p>Check tyre pressure and overall condition.</p>
+                    <p>Motorcycle: ৳150 | Sedan: ৳500 | SUV: ৳700 | Pickup: ৳1,000</p>
+                    <button type="button" class="book-service" data-service="Tyre Inspection">Book Service</button>
+                </article>
+
+            </div>
+
+            <p id="noServicesMessage" hidden>
+                No services match your search.
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Book an Appointment</h2>
+            <p>Select a vehicle already registered to your account.</p>
+
+            <form id="bookingForm" novalidate>
+
+                <label for="vehicleSearch">Search Registered Vehicles:</label>
+                <input type="search" id="vehicleSearch"
+                       placeholder="Search by make, model or vehicle type">
+
+                <label for="vehicle">Registered Vehicle:</label>
+                <select id="vehicle" name="vehicle" required>
+                    <option value="">Choose your vehicle</option>
+                    <option value="car1" data-type="Sedan">Toyota Corolla - Sedan</option>
+                    <option value="car2" data-type="Sedan">Honda Civic - Sedan</option>
+                    <option value="suv1" data-type="SUV">Toyota RAV4 - SUV</option>
+                    <option value="bike1" data-type="Motorcycle">Honda CB150R - Motorcycle</option>
+                    <option value="pickup1" data-type="Pickup">Toyota Hilux - Pickup</option>
+                </select>
+
+                <p id="noVehiclesMessage" hidden>
+                    No registered vehicles match your search.
+                </p>
+
+                <br><br>
+
+                <label for="service">Select Service:</label>
+                <select id="service" name="service" required>
+                    <option value="">Choose a service</option>
+                    <option value="Engine Tuning">Engine Tuning</option>
+                    <option value="Oil Change">Oil Change</option>
+                    <option value="Wash & Polish">Wash &amp; Polish</option>
+                    <option value="Brake Inspection">Brake Inspection</option>
+                    <option value="Battery Repair">Battery Repair</option>
+                    <option value="Tyre Inspection">Tyre Inspection</option>
+                </select>
+
+                <br><br>
+
+                <p>Service price depends on your registered vehicle type.</p>
+
+                <label for="date">Appointment Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <br><br>
+
+                <label for="time">Appointment Time:</label>
+                <input type="time" id="time" name="time" required>
+
+                <br><br>
+
+                <button type="button" id="reviewButton" class="review-button">
+                    Review Booking
+                </button>
+
+                <button type="reset">Clear Form</button>
+
+                <p id="formMessage" role="status" aria-live="polite"></p>
+
+            </form>
+        </section>
+
+        <hr>
+
+        <div id="bookingPopup" class="popup">
+
+            <div class="popup-content">
+
+                <h3>Appointment Summary</h3>
+
+                <p id="summaryVehicle">Registered Vehicle: —</p>
+                <p id="summaryService">Selected Service: —</p>
+                <p id="summaryDate">Appointment Date: —</p>
+                <p id="summaryTime">Appointment Time: —</p>
+                <p id="summaryPrice">Total Price: —</p>
+
+                <p id="popupMessage"></p>
+
+                <button type="button" id="confirmButton">
+                    Confirm Booking
+                </button>
+
+                <a href="#" class="close-button">Close</a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AutoCare Services. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
