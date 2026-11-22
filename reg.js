@@ -33,7 +33,7 @@ form.addEventListener("submit", function (event) {
     }
 
     if (!email.includes("@") || !email.includes(".")) {
-        msgBox.textContent = "Please enter a valid email address containing @.";
+        msgBox.textContent = "Please enter a valid email address containing @ and dot(.)";
         return;
     }
 
