@@ -8,110 +8,123 @@
   <body>
     <div class="stickyDemo">
       <h2>AutoCare: Vehicle Service & Maintenance</h2>
+      <p id="systemMessageText"></p>
     </div>
 
     <h3>Customer Authentication & Support Module</h3>
 
     <div class="staticDemo">
-      <p><b><i>System Message: Form submitted successfully!</i></b></p>
+      <p>Log in to your account, recover a forgotten password, or request emergency roadside support.</p>
     </div>
 
+    <!-- ========== Login ========== -->
     <h3>Secure Customer Login</h3>
-    <form action="" method="post">
+    <div class="formBox">
       <table>
         <tr>
           <td><label for="loginEmail">Email</label></td>
           <td>
-            <input type="email" id="loginEmail" name="loginEmail" placeholder="Enter your email" required />
+            <input type="email" id="loginEmail" name="loginEmail" placeholder="Enter your email" />
+            <span class="error" id="loginEmailError"></span>
           </td>
         </tr>
         <tr>
           <td><label for="loginPassword">Password</label></td>
           <td>
-            <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your password" required />
+            <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your password" />
+            <span class="error" id="loginPasswordError"></span>
           </td>
         </tr>
         <tr>
           <td></td>
           <td>
-            <button type="submit">Login</button>
+            <button type="button" id="loginBtn">Login</button>
           </td>
         </tr>
       </table>
-    </form>
+    </div>
 
+    <!-- ========== Forgot password ========== -->
     <h3>Forgot Password Workflow</h3>
-    <form action="" method="post">
+    <div class="formBox">
       <table>
         <tr>
           <td><label for="resetEmail">Email</label></td>
           <td>
-            <input type="email" id="resetEmail" name="resetEmail" placeholder="Enter email for OTP" required />
+            <input type="email" id="resetEmail" name="resetEmail" placeholder="Enter email for OTP" />
+            <span class="error" id="resetEmailError"></span>
           </td>
         </tr>
         <tr>
           <td></td>
           <td>
-            <button type="submit">Send OTP</button>
-          </td>
-        </tr>
-        <tr>
-          <td><label for="otp">Enter OTP</label></td>
-          <td>
-            <input type="number" id="otp" name="otp" placeholder="Enter OTP code" />
-          </td>
-        </tr>
-        <tr>
-          <td><label for="newPassword">New Password</label></td>
-          <td>
-            <input type="password" id="newPassword" name="newPassword" placeholder="Enter new password" />
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            <button type="submit">Reset Password</button>
+            <button type="button" id="sendOtpBtn">Send OTP</button>
           </td>
         </tr>
       </table>
-    </form>
+    </div>
 
-    <h3>Emergency Roadside Support</h3>
-    <form action="" method="post">
+    <!-- The reset password section is placed here by JavaScript after the OTP is verified -->
+    <div id="resetArea"></div>
+
+    <!-- ========== Emergency support ========== -->
+    <h3 id="supportSection">Emergency Roadside Support</h3>
+    <div class="formBox">
       <table>
         <tr>
           <td><label for="supportName">Full Name</label></td>
           <td>
-            <input type="text" id="supportName" name="supportName" placeholder="Enter your name" required />
+            <input type="text" id="supportName" name="supportName" placeholder="Enter your name" />
+            <span class="error" id="supportNameError"></span>
           </td>
         </tr>
         <tr>
           <td><label for="supportPhone">Phone Number</label></td>
           <td>
-            <input type="number" id="supportPhone" name="supportPhone" placeholder="Enter phone number" required />
+            <input type="tel" id="supportPhone" name="supportPhone" placeholder="Enter phone number" />
+            <span class="error" id="supportPhoneError"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="requestType">Request Type</label></td>
+          <td>
+            <select id="requestType" name="requestType">
+              <option value="">Select request type</option>
+              <option value="Emergency Roadside Assistance">Emergency Roadside Assistance</option>
+              <option value="General Query">General Query</option>
+            </select>
+            <span class="error" id="requestTypeError"></span>
+            <span class="hint" id="requestHint"></span>
           </td>
         </tr>
         <tr>
           <td><label for="issue">Describe Issue</label></td>
           <td>
-            <textarea id="issue" name="issue" rows="4" cols="30" placeholder="Describe emergency or query"></textarea>
+            <textarea id="issue" name="issue" rows="4" cols="30" maxlength="200" placeholder="Describe emergency or query"></textarea>
+            <span class="error" id="issueError"></span>
+            <span class="counter" id="issueCount">0/200</span>
           </td>
         </tr>
         <tr>
           <td></td>
           <td>
-            <button type="submit">Request Support</button>
+            <button type="button" id="supportBtn">Request Support</button>
           </td>
         </tr>
       </table>
-    </form>
+    </div>
 
     <p>
       Back to <a href="registration.html">Registration Page</a>
     </p>
 
     <div class="fixedDemo">
-      <a href="#">Need Help?</a>
+      <a href="#supportSection">Need Help?</a>
     </div>
+
+    <!-- The OTP popup is placed here by JavaScript -->
+    <div id="otpArea"></div>
+
+    <script src="login.js"></script>
   </body>
 </html>

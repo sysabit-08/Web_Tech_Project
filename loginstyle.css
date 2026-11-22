@@ -17,7 +17,7 @@ p {
     font-size: 16px;
 }
 
-/* Header */
+/* Header (also shows the system messages) */
 .stickyDemo {
     position: sticky;
     top: 0px;
@@ -35,7 +35,39 @@ p {
     color: #155724;
 }
 
-/* System message box */
+.stickyDemo p {
+    margin: 8px 0px 0px 0px;
+    color: #155724;
+    font-size: 15px;
+}
+
+/* Message types inside the header */
+.msg-success,
+.msg-error,
+.msg-info {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.msg-success {
+    color: #155724;
+    border-color: #28a745;
+}
+
+.msg-error {
+    color: #721c24;
+    border-color: #dc3545;
+}
+
+.msg-info {
+    color: #0c5460;
+    border-color: #17a2b8;
+}
+
+/* Intro box */
 .staticDemo {
     position: static;
     border: 3px solid black;
@@ -75,7 +107,13 @@ p {
     text-decoration: underline;
 }
 
-form {
+/* Keeps the heading below the sticky header after clicking Need Help? */
+#supportSection {
+    scroll-margin-top: 110px;
+}
+
+/* Form boxes */
+.formBox {
     margin-bottom: 25px;
 }
 
@@ -95,12 +133,12 @@ label {
     color: brown;
 }
 
-/*Inputs*/
+/* Inputs */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="number"],
 input[type="password"],
+select,
 textarea {
     width: 100%;
     padding: 8px;
@@ -109,13 +147,37 @@ textarea {
 
 input[type="email"]:hover,
 input[type="password"]:hover,
-input[type="number"]:hover,
 input[type="text"]:hover,
+input[type="tel"]:hover,
 textarea:hover {
     background-color: #faa6a6;
 }
 
-button[type="submit"] {
+/* Error text, hint text and character counter */
+.error {
+    display: block;
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+.hint {
+    display: block;
+    color: rgb(135, 39, 39);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.counter {
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    color: rgb(135, 39, 39);
+}
+
+/* Buttons */
+button[type="button"] {
     background-color: brown;
     color: white;
     padding: 10px 20px;
@@ -124,7 +186,7 @@ button[type="submit"] {
     font-weight: bold;
 }
 
-button[type="submit"]:hover {
+button[type="button"]:hover {
     background-color: rgb(135, 39, 39);
 }
 
@@ -136,4 +198,28 @@ a {
 
 a:hover {
     color: rgb(2, 27, 27);
+}
+
+/* OTP popup: it only exists in the page while JavaScript has placed it there */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(23, 54, 93, 0.6);
+    z-index: 3000;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
